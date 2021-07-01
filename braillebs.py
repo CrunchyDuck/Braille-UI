@@ -9,7 +9,7 @@ import json
 
 
 class BrailleConverter(ui_backend.Ui_MainWindow):
-    braille_dictionary = json.load(open("dictionary.json"))
+    braille_dictionary = json.load(open("dictionary.json", encoding="utf-8"))
 
     def __init__(self, window):
         self.setupUi(window)
@@ -56,8 +56,8 @@ def exception_hook(exctype, value, traceback):
 
 
 if __name__ == "__main__":
-    #with open("dictionary.json", "w") as f:
-    #    f.write(json.dumps(BrailleConverter.braille_dictionary, indent=4, sort_keys=True))
+    #with open("dictionary.json", "w", encoding="utf-8") as f:
+    #    f.write(json.dumps(BrailleConverter.braille_dictionary, indent=4, sort_keys=True, ensure_ascii=False))
 
     # Don't mind this. It just makes PyQt actually display errors when it crashes instead of silently dying.
     sys._excepthook = sys.excepthook
